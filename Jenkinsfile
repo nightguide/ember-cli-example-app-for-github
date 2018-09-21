@@ -10,20 +10,16 @@ pipeline {
             } 
           }
           
-             steps {
+        steps {
         //Send to Slack notify
         slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         //Build
-        sh 'mvn clean install'
+         sh 'npm install bower'
+         sh 'npm install phantomjs'
+         sh 'npm install ember-cli'
+         sh 'npm install'
+         sh './node_modules/bower/bin/bower install --allow-root'
       }   
-         
-          steps {
-              sh 'npm install bower'
-              sh 'npm install phantomjs'
-              sh 'npm install ember-cli'
-              sh 'npm install'
-              sh './node_modules/bower/bin/bower install --allow-root'
-          }
        }
        
        stage('Build Docker Image') { 
