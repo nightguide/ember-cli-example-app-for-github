@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build Docker Image') { 
             steps {  
-              sh 'npm install -g bower'
+              sh 'npm install -g bower --unsafe-perm'
               sh 'npm install -g phantomjs'
               sh 'npm install ember-cli'
               sh 'npm install'
