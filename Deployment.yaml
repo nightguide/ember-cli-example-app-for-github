@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ember-cli-example
+  namespace: dev
+  labels:
+    app: ember-cli-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ember-cli-example
+  template:
+    metadata:
+      labels:
+        app: ember-cli-example
+    spec:
+      containers:
+      - name: ember-cli-example
+        image: kub-ansible:5000/admin/ember-cli-example:1
+        ports:
+        - containerPort: 4200
+---
+apiVersion: v1
+ kind: Service
+ metadata:
+   name: ember-cli-example-svc
+   namespace: dev
+   labels:
+     app: ember-cli-example-svc
+ spec:
+   type: NodePort
+   ports:
+     - port: 4200
+       nodePort: 32111
+   selector:
+     app: ember-cli-example
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ember-cli-example
+  namespace: dev
+spec:
+  - hosts:
+    - ember.vsphere.local
+  rules:
+  - host: ember.vsphere.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: ember-cli-example-svc
+          servicePort: 80
