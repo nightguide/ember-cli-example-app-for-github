@@ -1,14 +1,18 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine' 
-            args '-p 3000:3000' 
+            image 'node:8-alpine' 
+            args '-u 0:0 -p 4200:4200' 
         }
     }
     stages {
         stage('Build') { 
-            steps {
-                sh 'npm install' 
+            steps {  
+              sh 'npm install' 
+              sh 'npm install -g bower'
+              sh 'npm install -g ember-cli'
+              sh 'npm install phantomjs'
+              sh 'ember serve'
             }
         }
     }
