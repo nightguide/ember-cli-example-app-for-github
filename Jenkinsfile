@@ -8,6 +8,7 @@ pipeline {
                label 'jenkins-slave'
             } 
           }
+       }
        
        steps {
           sh 'pwd'
