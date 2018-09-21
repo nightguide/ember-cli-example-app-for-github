@@ -15,7 +15,8 @@ pipeline {
             }
         }
        stage('Build Docker Image') { 
-            steps {  
+           agent none
+           steps {  
               sh 'pwd'
               sh 'docker build -t kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER ${WORKSPACE}'
             }
