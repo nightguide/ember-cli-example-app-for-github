@@ -13,7 +13,7 @@ pipeline {
               sh 'npm install phantomjs'
               sh 'npm install ember-cli'
               sh 'npm install'
-              sh 'bower install'
+              sh 'bower install --allow-root'
               sh 'ember serve'
             }
         }
