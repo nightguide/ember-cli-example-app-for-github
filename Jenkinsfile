@@ -15,7 +15,6 @@ pipeline {
        }
        
        stage('Build Docker Image') { 
-           agent { label 'jenkins-slave' }
            steps {  
               sh 'hostname'
             }
