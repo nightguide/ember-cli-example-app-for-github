@@ -44,7 +44,7 @@ pipeline {
            sh 'kubectl set image deployment/ember-cli-example ember-cli-example=kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER -n=dev'
          }
         }
-     }
+     
 post {
     success {
       slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
@@ -55,6 +55,6 @@ post {
     }     
  }
    }
-
+}
 
 
