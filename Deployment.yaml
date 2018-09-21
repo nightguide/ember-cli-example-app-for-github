@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: ember-cli-example
-        image: kub-ansible:5000/admin/ember-cli-example:1
+        image: kub-ansible:5000/admin/ember-cli-example:80
         ports:
         - containerPort: 4200
 ---
@@ -50,5 +50,5 @@ spec:
       - path: /
         backend:
           serviceName: ember-cli-example-svc
-          servicePort: 80
+          servicePort: 4200
 
