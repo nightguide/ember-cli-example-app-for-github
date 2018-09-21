@@ -19,7 +19,6 @@ pipeline {
             }
         }
        stage('Build Docker Image') { 
-            agent { label 'jenkins-slave' }
             steps {  
              sh 'docker build -t kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER .'
             }
