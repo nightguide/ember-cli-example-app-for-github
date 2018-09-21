@@ -1,19 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:8-alpine' 
-            args '-u 0:0 -p 4200:4200' 
-        }
+    agent any
     }
     stages {
-        stage('Build') { 
+        stage('Build Docker Image') { 
             steps {  
-              sh 'npm install' 
-              sh 'npm install -g bower'
-              sh 'npm install -g ember-cli'
-              sh 'npm install phantomjs'
-              sh 'ember serve'
+              sh 'docker build -t kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER ' 
             }
         }
     }
+}
 }
