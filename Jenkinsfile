@@ -5,16 +5,14 @@ pipeline {
             docker { 
                image 'node:8-alpine' 
                args '-u 0:0 -p 4200:4200'
-               label 'jenkins-slave'
             } 
           }
+         
           steps {
-          sh 'pwd'
-       }
+            sh 'pwd'
+          }
        }
        
-      
-      }
        stage('Build Docker Image') { 
            steps {  
               sh 'hostname'
