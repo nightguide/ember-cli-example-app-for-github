@@ -9,11 +9,11 @@ pipeline {
     stages {
         stage('Build Docker Image') { 
             steps {  
-              sh 'npm install -g bower'
+              sh 'npm install bower'
               sh 'npm install phantomjs'
-              sh 'npm install -g ember-cli'
+              sh 'npm install ember-cli'
               sh 'npm install'
-              sh 'bower install --allow-root'
+              sh './node_modules/bower/bower install --allow-root'
               sh './node_modules/ember-cli/bin/ember serve'
             }
         }
