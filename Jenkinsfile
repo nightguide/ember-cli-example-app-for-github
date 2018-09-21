@@ -6,8 +6,6 @@ pipeline {
     stages {
         stage('Build Docker Image') { 
             steps {  
-              sh 'chown -R $USER:$GROUP ~/.npm'
-              sh 'chown -R $USER:$GROUP ~/.config'
               sh 'npm install -g bower'
               sh 'npm install -g phantomjs'
               sh 'npm install ember-cli'
