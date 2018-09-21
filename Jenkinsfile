@@ -11,7 +11,7 @@ pipeline {
             steps {  
               sh 'npm install -g bower'
               sh 'npm install phantomjs'
-              sh 'npm install ember-cli'
+              sh 'npm install -g ember-cli'
               sh 'npm install'
               sh 'bower install --allow-root'
               sh 'ember serve'
