@@ -1,7 +1,4 @@
 pipeline {
-   agent { label 'jenkins-slave' }
-   stages {
-       stage('Install Dependencies ') { 
          agent {
             docker { 
                image 'node:8-alpine' 
@@ -9,13 +6,17 @@ pipeline {
             } 
           }
          
+     stages {
+       stage('Install Dependencies ') { 
+  
           steps {
             sh 'pwd'
           }
        }
        
        stage('Build Docker Image') { 
-        steps {  
+       agent none
+         steps {  
               sh 'hostname'
             }
         }
