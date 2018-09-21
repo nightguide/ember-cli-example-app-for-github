@@ -8,11 +8,12 @@ pipeline {
                label 'jenkins-slave'
             } 
           }
-       }
-       
-       steps {
+          steps {
           sh 'pwd'
        }
+       }
+       
+      
       }
        stage('Build Docker Image') { 
            steps {  
