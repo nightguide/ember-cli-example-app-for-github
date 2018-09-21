@@ -20,7 +20,7 @@ pipeline {
        stage('Build Docker Image') { 
             agent any
             steps {  
-             sh 'docker build -t kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER ./workspace/node-js-example'
+             sh 'docker build -t kub-ansible:5000/admin/ember-cli-example:$BUILD_NUMBER /home/jenkins/workspace/node-js-example'
             }
         }
     }
