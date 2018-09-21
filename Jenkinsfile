@@ -3,6 +3,7 @@ pipeline {
         docker { 
           image 'node:8-alpine' 
           args '-u 0:0 -p 4200:4200'
+          customWorkspace './node-js-example'
         }
   }
     
