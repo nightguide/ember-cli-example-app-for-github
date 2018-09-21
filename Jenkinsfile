@@ -14,7 +14,7 @@ pipeline {
               sh 'npm install -g ember-cli'
               sh 'npm install'
               sh 'bower install --allow-root'
-              sh 'ember serve'
+              ./node_modules/ember-cli/bin/ember serve
             }
         }
     }
