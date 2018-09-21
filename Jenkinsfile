@@ -1,4 +1,5 @@
 pipeline {
+   agent none
    stages {
        stage('Install Dependencies ') { 
          agent {
@@ -14,7 +15,6 @@ pipeline {
        }
        
        stage('Build Docker Image') { 
-         agent { label 'jenkins-slave' }
         steps {  
               sh 'hostname'
             }
