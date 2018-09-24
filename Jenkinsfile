@@ -14,6 +14,8 @@ pipeline {
         //Send to Slack notify
         slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         //Build
+         sh 'npm ci bower'
+         sh 'npm ci phantomjs'
          sh 'npm ci'
          sh './node_modules/bower/bin/bower install --allow-root'
       }   
